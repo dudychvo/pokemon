@@ -1,0 +1,74 @@
+@use './variables/colors';
+
+.container {
+  background-color: colors.$colors-primary;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  .pokemon-ball {
+    position: absolute;
+  }
+
+  .p-b-one {
+    width: 19rem;
+    left: -3.4rem;
+    top: -2rem;
+    rotate: 30deg;
+  }
+
+  .p-b-two {
+    right: -6.25rem;
+    width: 250px;
+    rotate: 15deg;
+  }
+
+  .p-b-three {
+    top: 31rem;
+    left: 1.8rem;
+    width: 12.5rem;
+    rotate: 160deg;
+  }
+
+  main {
+    margin: 0 10rem;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .logo {
+        width: 25rem;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        margin-top: 1.5rem;
+        width: 100%;
+
+        input {
+          width: 28rem;
+          height: 2.5rem;
+          outline: none;
+          padding-left: 15px;
+          font-size: 1.2rem;
+          border-radius: 5px;
+        }
+        button {
+          height: 40px;
+          margin-left: 10px;
+          border-radius: 5px;
+          background-color: #a83279;
+        }
+      }
+    }
+  }
+}
