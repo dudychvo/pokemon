@@ -5,10 +5,12 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  z-index: 1;
 
   .pokemon-ball {
     position: absolute;
+    z-index: -1;
   }
 
   .p-b-one {
@@ -49,25 +51,67 @@
       }
       nav {
         display: flex;
-        align-items: center;
-        width: max-content;
+        justify-content: center;
         margin-top: 1.5rem;
         width: 100%;
 
         input {
-          width: 28rem;
+          width: 35vw;
+          max-width: 28rem;
           height: 2.5rem;
           outline: none;
           padding-left: 15px;
           font-size: 1.2rem;
           border-radius: 5px;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         button {
-          height: 40px;
-          margin-left: 10px;
+          display: flex;
+          justify-content: center;
+          height: 2.5rem;
+          width: 2.5rem;
+          margin-left: 0.5rem;
           border-radius: 5px;
-          background-color: #ee008f;
+          background-color: #ff5350;
+          transition: transform 0.2s ease, background 0.2s ease;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+          .search {
+            width: 1.5rem;
+            transition: transform 0.2s ease, background 0.2s ease;
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+
+          &:hover {
+            background-color: #e92929d0;
+          }
         }
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 600px) {
+        grid-template-columns: 1fr;
+      }
+
+      .pokemon-card {
+        width: 300px;
+        height: 200px;
+        border-radius: 5px;
+        background-color: #366a17;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
       }
     }
   }

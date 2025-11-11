@@ -5,7 +5,6 @@ import search from './assets/search.svg';
 
 import './App.scss';
 
-
 function App() {
   return (
     <div className='container'>
@@ -16,13 +15,23 @@ function App() {
         <header>
           <img src={logo} alt='#' className='logo' />
           <nav>
-            <input type='text' placeholder='Search eg, ditto or pikachu...' />
+            <input type='text' placeholder='Search...' />
             <button>
               <img src={search} alt='#' className='search' />
             </button>
           </nav>
         </header>
-        <div></div>
+        <div className='grid'>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'></div>
+        </div>
       </main>
     </div>
   );
