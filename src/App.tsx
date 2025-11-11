@@ -5,6 +5,7 @@ import search from './assets/search.svg';
 
 import './App.scss';
 
+
 function App() {
   return (
     <div className='container'>
