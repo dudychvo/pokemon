@@ -40,25 +40,12 @@ function App() {
                 <button className='pk-info-btn'>Know More</button>
               </div>
               <img
-                src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png'
+                src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png'
                 alt='#'
                 className='pk-img'
               />
             </div>
           </div>
-          {/* 
-
-
-
-           */}
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
-          <div className='pokemon-card p-k-one'></div>
         </div>
       </main>
     </div>
