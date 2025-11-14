@@ -22,7 +22,31 @@ function App() {
           </nav>
         </header>
         <div className='grid'>
-          <div className='pokemon-card p-k-one'></div>
+          <div className='pokemon-card p-k-one'>
+            <div className='pk-section-one'>
+              <div className='pk-power'>
+                <button>Grass</button>
+                <button>Poison</button>
+              </div>
+              <p>#001</p>
+            </div>
+            <div className='pk-section-two'>
+              <div className='pk-info'>
+                <h3>Bulbasaur</h3>
+                <p>
+                  A strange seed was planted on its back at birth. the plant
+                  sprouts and grows with this pokémon.
+                </p>
+                <button>Know More</button>
+              </div>
+              <img src='#' alt='#' />
+            </div>
+          </div>
+          {/* 
+
+
+
+           */}
           <div className='pokemon-card p-k-one'></div>
           <div className='pokemon-card p-k-one'></div>
           <div className='pokemon-card p-k-one'></div>
