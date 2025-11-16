@@ -1,4 +1,7 @@
-// import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+import { PokemonCard } from './components/PokemonCard/PokemonCard';
 import pokemonBall from './assets/pokemon-ball.svg';
 import logo from './assets/logo.png';
 import search from './assets/search.svg';
@@ -6,6 +9,16 @@ import search from './assets/search.svg';
 import './App.scss';
 
 function App() {
+  const [pokemonsData, setPokemonsData] = useState([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const result = await axios.get('https://pokeapi.co/api/v2/pokemon/');
+      setPokemonsData(result.data.results);
+    };
+    fetch();
+  }, []);
+
   return (
     <div className='container'>
       <img src={pokemonBall} alt='#' className='pokemon-ball p-b-one' />
@@ -22,30 +35,10 @@ function App() {
           </nav>
         </header>
         <div className='grid'>
-          <div className='pokemon-card p-k-one'>
-            <div className='pk-section-one'>
-              <div className='pk-power'>
-                <button className='pk-power-btn'>Grass</button>
-                <button className='pk-power-btn'>Poison</button>
-              </div>
-              <p className='pk-num'>#001</p>
-            </div>
-            <div className='pk-section-two'>
-              <div className='pk-info'>
-                <h3 className='pk-info-name'>Bulbasaur</h3>
-                <p className='pk-info-desc'>
-                  A strange seed was planted on its back at birth. the plant
-                  sprouts and grows with this pokémon.
-                </p>
-                <button className='pk-info-btn'>Know More</button>
-              </div>
-              <img
-                src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png'
-                alt='#'
-                className='pk-img'
-              />
-            </div>
-          </div>
+          //FIXME: Fix this error
+          {pokemonsData.map((el: any) => (
+            <PokemonCard name={el.name} url={el.url} />
+          ))}
         </div>
       </main>
     </div>
