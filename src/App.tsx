@@ -35,7 +35,9 @@ function App() {
           </nav>
         </header>
         <div className='grid'>
-          //FIXME: Fix this error
+          {
+            //FIXME: ERROR
+          }
           {pokemonsData.map((el: any) => (
             <PokemonCard name={el.name} url={el.url} />
           ))}
