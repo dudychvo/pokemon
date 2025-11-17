@@ -48,6 +48,10 @@
 
       .logo {
         width: 18rem;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
       nav {
         display: flex;
