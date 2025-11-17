@@ -1,22 +1,18 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import type { PokemonInfo } from '../../types/PokemonInfo'; // path relative to the file
+import type { PokemonInfo, PokemonInfoURL } from '../../types/PokemonInfo'; // path relative to the file
+
 import './PokemonCard.scss';
 
-type PokemonCardProps = {
-  url: string;
-};
-
-export const PokemonCard = ({ url }: PokemonCardProps) => {
+export const PokemonCard = ({ url }: PokemonInfoURL) => {
   const [pokemon, setPokemon] = useState<PokemonInfo | null>(null);
 
-  const pokemonName = pokemon?.name?.replace(/^./, (c) => c.toUpperCase());
+  const pokemonName = pokemon?.name.replace(/^./, (c) => c.toUpperCase());
 
   const getAbilityName = (abilityIndex: number) => {
-    return pokemon?.abilities?.[abilityIndex]?.ability?.name?.replace(
-      /^./,
-      (c) => c.toUpperCase()
+    return pokemon?.abilities?.[abilityIndex]?.ability.name.replace(/^./, (c) =>
+      c.toUpperCase()
     );
   };
 
@@ -27,8 +23,6 @@ export const PokemonCard = ({ url }: PokemonCardProps) => {
     };
     fetch();
   }, [url]);
-
-  console.log(pokemon);
 
   return (
     <>
@@ -42,7 +36,7 @@ export const PokemonCard = ({ url }: PokemonCardProps) => {
               <button className='pk-power-btn'>{getAbilityName(1)}</button>
             )}
           </div>
-          <p className='pk-num'>#001</p>
+          <p className='pk-num'>{'#' + pokemon?.id}</p>
         </div>
         <div className='pk-section-two'>
           <div className='pk-info'>
@@ -54,7 +48,7 @@ export const PokemonCard = ({ url }: PokemonCardProps) => {
             <button className='pk-info-btn'>Know More</button>
           </div>
           <img
-            src={pokemon?.sprites?.other?.['official-artwork']?.front_default}
+            src={pokemon?.sprites.other?.['official-artwork']?.front_default}
             alt='#'
             className='pk-img'
           />
