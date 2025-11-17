@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     const fetch = async () => {
       const result = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=18'
+        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=30'
       );
       setPokemonsData(result.data);
     };
