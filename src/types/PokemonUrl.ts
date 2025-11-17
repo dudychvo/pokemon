@@ -1,9 +1,9 @@
 export interface PokemonUrl {
-  count: number;
-  next: string;
-  previous: string | null;
-  results: {
-    name: string;
-    url: string;
-  }[];
+  // count: number;
+  // next: string;
+  // previous: string | null;
+  // results: {
+  name: string;
+  url: string;
+  // }[];
 }
