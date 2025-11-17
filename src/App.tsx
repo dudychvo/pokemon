@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import type { PokemonUrl } from './types/PokemonUrl.ts';
 import { PokemonCard } from './components/PokemonCard/PokemonCard';
 import pokemonBall from './assets/pokemon-ball.svg';
 import logo from './assets/logo.png';
@@ -35,11 +36,8 @@ function App() {
           </nav>
         </header>
         <div className='grid'>
-          {
-            //FIXME: ERROR
-          }
-          {pokemonsData.map((el: any) => (
-            <PokemonCard name={el.name} url={el.url} />
+          {pokemonsData.map((el: PokemonUrl) => (
+            <PokemonCard url={el.url} />
           ))}
         </div>
       </main>

@@ -4,7 +4,11 @@ import axios from 'axios';
 import type { PokemonInfo } from '../../types/PokemonInfo'; // path relative to the file
 import './PokemonCard.scss';
 
-export const PokemonCard = (props: PokemonInfo) => {
+type PokemonCardProps = {
+  url: string;
+};
+
+export const PokemonCard = ({ url }: PokemonCardProps) => {
   const [pokemon, setPokemon] = useState<PokemonInfo | null>(null);
 
   const pokemonName = pokemon?.name?.replace(/^./, (c) => c.toUpperCase());
@@ -18,11 +22,11 @@ export const PokemonCard = (props: PokemonInfo) => {
 
   useEffect(() => {
     const fetch = async () => {
-      const result = await axios.get(props.url);
+      const result = await axios.get(url);
       setPokemon(result.data);
     };
     fetch();
-  }, [props.url]);
+  }, [url]);
 
   console.log(pokemon);
 
