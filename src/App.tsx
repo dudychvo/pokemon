@@ -12,17 +12,20 @@ import searchImg from './assets/search.svg';
 
 import './App.scss';
 
+const BATCH_SIZE = 18;
+
 function App() {
   const [pokemonsData, setPokemonsData] = useState<PokemonAPIResult | null>(
     null
   );
-  const [inputValue, setInputValue] = useState(''); // current input
+  const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState<string>('');
+  const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
 
   useEffect(() => {
     const fetch = async () => {
       const result = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=30'
+        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=501'
       );
       setPokemonsData(result.data);
     };
@@ -31,10 +34,33 @@ function App() {
 
   const filteredPokemons = pokemonsData?.results.filter(
     (p: PokemonAPIResultURL) =>
-      p.name.toLowerCase().includes(search.toLowerCase())
+      p.name.toLowerCase().startsWith(search.toLowerCase())
   );
+  const allPokemons = search ? filteredPokemons : pokemonsData?.results;
+  const displayPokemons = allPokemons?.slice(0, visibleCount);
 
-  const displayPokemons = search ? filteredPokemons : pokemonsData?.results;
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 50
+      ) {
+        if (allPokemons && visibleCount < allPokemons.length) {
+          setVisibleCount((prev) =>
+            Math.min(prev + BATCH_SIZE, allPokemons.length)
+          );
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [allPokemons, visibleCount]); // include both dependencies
+
+  // Reset visibleCount on new search
+  useEffect(() => {
+    setVisibleCount(BATCH_SIZE);
+  }, [search]);
 
   return (
     <div className='container'>
@@ -50,6 +76,7 @@ function App() {
             onClick={() => {
               setInputValue('');
               setSearch('');
+              setVisibleCount(BATCH_SIZE);
             }}
           />
           <nav>
@@ -59,7 +86,11 @@ function App() {
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <button onClick={() => setSearch(inputValue)}>
+            <button
+              onClick={() => {
+                setSearch(inputValue);
+              }}
+            >
               <img src={searchImg} alt='#' className='search' />
             </button>
           </nav>
