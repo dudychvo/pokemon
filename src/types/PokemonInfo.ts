@@ -1,6 +1,4 @@
 export interface PokemonInfo {
-  url: string;
-
   abilities: {
     ability: {
       name: string;
@@ -89,4 +87,8 @@ export interface PokemonInfo {
     };
   }[];
   weight: number;
+}
+
+export interface PokemonInfoURL {
+  url: string;
 }
