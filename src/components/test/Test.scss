@@ -1,0 +1,27 @@
+.test1 {
+  width: 100vw;
+  height: 100vh;
+  background-color: #79caf9;
+
+  .test2 {
+    position: relative;
+
+    .test3 {
+      position: absolute;
+      width: 1261.55px;
+    }
+
+    .test4 {
+      position: absolute;
+      width: 400px;
+      margin-left: calc(100vw / 2 - 200px);
+      margin-top: 30px;
+    }
+  }
+}
+
+img[src$='.svg'] {
+  image-rendering: auto;
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+}

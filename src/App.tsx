@@ -11,6 +11,7 @@ import logo from './assets/logo.png';
 import searchImg from './assets/search.svg';
 
 import './App.scss';
+import { Test } from './components/test/Test.tsx';
 
 const BATCH_SIZE = 18;
 
@@ -62,48 +63,49 @@ function App() {
     setVisibleCount(BATCH_SIZE);
   }, [search]);
 
-  return (
-    <div className='container'>
-      <img src={pokemonBall} alt='#' className='pokemon-ball p-b-one' />
-      <img src={pokemonBall} alt='#' className='pokemon-ball p-b-two' />
-      <img src={pokemonBall} alt='#' className='pokemon-ball p-b-three' />
-      <main>
-        <header>
-          <img
-            src={logo}
-            alt='#'
-            className='logo'
-            onClick={() => {
-              setInputValue('');
-              setSearch('');
-              setVisibleCount(BATCH_SIZE);
-            }}
-          />
-          <nav>
-            <input
-              type='text'
-              placeholder='Search...'
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-            />
-            <button
-              onClick={() => {
-                setSearch(inputValue);
-              }}
-            >
-              <img src={searchImg} alt='#' className='search' />
-            </button>
-          </nav>
-        </header>
-        <div className='grid'>
-          {displayPokemons?.map((p: PokemonAPIResultURL) => (
-            <PokemonCard key={p.url} url={p.url} />
-          ))}
-          {!displayPokemons?.length && <p>No Pokémon found</p>}
-        </div>
-      </main>
-    </div>
-  );
+  // return (
+  //   <div className='container'>
+  //     <img src={pokemonBall} alt='#' className='pokemon-ball p-b-one' />
+  //     <img src={pokemonBall} alt='#' className='pokemon-ball p-b-two' />
+  //     <img src={pokemonBall} alt='#' className='pokemon-ball p-b-three' />
+  //     <main>
+  //       <header>
+  //         <img
+  //           src={logo}
+  //           alt='#'
+  //           className='logo'
+  //           onClick={() => {
+  //             setInputValue('');
+  //             setSearch('');
+  //             setVisibleCount(BATCH_SIZE);
+  //           }}
+  //         />
+  //         <nav>
+  //           <input
+  //             type='text'
+  //             placeholder='Search...'
+  //             value={inputValue}
+  //             onChange={(e) => setInputValue(e.target.value)}
+  //           />
+  //           <button
+  //             onClick={() => {
+  //               setSearch(inputValue);
+  //             }}
+  //           >
+  //             <img src={searchImg} alt='#' className='search' />
+  //           </button>
+  //         </nav>
+  //       </header>
+  //       <div className='grid'>
+  //         {displayPokemons?.map((p: PokemonAPIResultURL) => (
+  //           <PokemonCard key={p.url} url={p.url} />
+  //         ))}
+  //         {!displayPokemons?.length && <p>No Pokémon found</p>}
+  //       </div>
+  //     </main>
+  //   </div>
+  // );
+  return <Test />;
 }
 
 export default App;
