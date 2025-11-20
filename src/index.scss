@@ -18,7 +18,8 @@ body {
   height: 100%;
   width: 100%;
   font-size: 16px;
-  background-color: #dd092f;
+  background-color: #79caf9;
+  font-family: 'Pixelify Sans' sans-serif;
 }
 
 /* Links */
@@ -29,6 +30,7 @@ a {
 }
 
 button,
-input[type='submit'] {
+input {
   cursor: pointer;
+  font-family: 'Pixelify Sans', sans-serif;
 }
