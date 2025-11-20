@@ -1,3 +1,5 @@
+@use '../../variables/rc';
+
 .pokemon-card {
   width: 21rem;
   height: 12.5rem;
@@ -66,6 +68,131 @@
       width: 8rem;
       height: 8rem;
       margin-top: 0.8rem;
+    }
+  }
+}
+
+.pk-container {
+  position: relative;
+
+  .pk-bg {
+    display: block;
+    width: 21rem;
+  }
+
+  .pokemon {
+    position: absolute;
+    inset: 0;
+
+    & > * {
+      position: absolute;
+    }
+
+    .pk-num {
+      top: 3.5rem;
+      left: 2rem;
+      font-size: 1.5rem;
+      background-color: #f8c633;
+      clip-path: rc.$rc;
+      padding: 0 0.5rem;
+    }
+
+    .pk-ablt-one-wide {
+      top: 1.75rem;
+      left: 8.5rem;
+      font-size: 0.875rem;
+      width: max-content;
+      padding: 0 0.5rem;
+      background-color: #166eb5;
+      color: white;
+      clip-path: rc.$rc;
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .pk-ablt-one-narrow {
+      top: 1.75rem;
+      left: 8.5rem;
+      font-size: 1rem;
+      width: max-content;
+      padding: 0 0.5rem;
+      background-color: #166eb5;
+      color: white;
+      clip-path: rc.$rc;
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .pk-ablt-two {
+      top: 3.75rem;
+      left: 7.5rem;
+      font-size: 1rem;
+      width: max-content;
+      padding: 0 0.5rem;
+      background-color: #166eb5;
+      color: white;
+      clip-path: rc.$rc;
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .pk-name-wide {
+      top: 6.5rem;
+      left: 3.5rem;
+      font-size: 1.3rem;
+    }
+
+    .pk-name-narrow {
+      top: 6.5rem;
+      left: 3.5rem;
+      font-size: 1.4rem;
+    }
+
+    .pk-more {
+      top: 9.35rem;
+      left: 2.25rem;
+      font-size: 1.15rem;
+      width: max-content;
+      padding: 0 0.5rem;
+      background-color: #0c255d;
+      color: white;
+      clip-path: rc.$rc;
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .pk-img-narrow {
+      height: 100%;
+      max-height: 5.75rem;
+      top: 5.5rem;
+      left: 12.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .pk-img-wide {
+      height: 100%;
+      max-height: 5.75rem;
+      top: 5.5rem;
+      left: 11.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
