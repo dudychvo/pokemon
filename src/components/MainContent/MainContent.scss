@@ -1,0 +1,108 @@
+@use '../../variables/colors';
+
+.container {
+  background-color: colors.$colors-primary;
+  width: 100vw;
+  min-height: 100vh;
+  // overflow-x: hidden;
+
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    header {
+      position: relative;
+
+      .headerCloud {
+        width: 100vw;
+      }
+
+      .logoImg {
+        width: 35vw;
+        position: absolute;
+        top: 2rem;
+        left: calc((100vw - 35vw) / 2);
+        transition: transform 0.25s ease;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.02);
+        }
+      }
+    }
+
+    nav {
+      position: relative;
+      margin-left: calc((100vw - 15rem) / 2);
+      margin-top: 2rem;
+
+      .searchBg {
+        position: absolute;
+        width: 15rem;
+      }
+
+      input {
+        position: absolute;
+        color: black;
+        outline: none;
+        top: 3.4rem;
+        left: 2rem;
+        font-size: 1.5rem;
+        max-width: 11rem;
+        background-color: transparent;
+
+        &::placeholder {
+          color: black;
+        }
+      }
+
+      .btn {
+        position: absolute;
+        width: 3.5rem;
+        height: 3.5rem;
+        top: 1.25rem;
+        left: 16rem;
+
+        .btnBg {
+          position: absolute;
+          width: 3.5rem;
+          transition: transform 0.25s ease;
+        }
+
+        .btnImg {
+          position: absolute;
+          width: 2rem;
+          top: 0.75rem;
+          left: 0.75rem;
+          transition: transform 0.25s ease;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          .btnImg {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 85vw;
+    margin: 0 auto;
+    margin-top: 10rem;
+
+    @media (max-width: 1150px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 780px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
