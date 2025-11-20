@@ -6,12 +6,14 @@ import type {
   PokemonAPIResultURL,
 } from './types/PokemonAPIResult.ts';
 import { PokemonCard } from './components/PokemonCard/PokemonCard';
-import pokemonBall from './assets/pokemon-ball.svg';
-import logo from './assets/logo.png';
-import searchImg from './assets/search.svg';
+
+import logoImg from './assets/logo-img.png';
+import headerCloud from './assets/header-cloud.png';
+import searchBg from './assets/search-bg.png';
+import btnBg from './assets/btn-bg.png';
+import btnImg from './assets/btn-img.png';
 
 import './App.scss';
-import { Test } from './components/test/Test.tsx';
 
 const BATCH_SIZE = 18;
 
@@ -65,13 +67,10 @@ function App() {
 
   // return (
   //   <div className='container'>
-  //     <img src={pokemonBall} alt='#' className='pokemon-ball p-b-one' />
-  //     <img src={pokemonBall} alt='#' className='pokemon-ball p-b-two' />
-  //     <img src={pokemonBall} alt='#' className='pokemon-ball p-b-three' />
   //     <main>
   //       <header>
   //         <img
-  //           src={logo}
+  //           src='#'
   //           alt='#'
   //           className='logo'
   //           onClick={() => {
@@ -92,7 +91,7 @@ function App() {
   //               setSearch(inputValue);
   //             }}
   //           >
-  //             <img src={searchImg} alt='#' className='search' />
+  //             <img src='#' alt='#' className='search' />
   //           </button>
   //         </nav>
   //       </header>
@@ -105,7 +104,50 @@ function App() {
   //     </main>
   //   </div>
   // );
-  return <Test />;
+
+  return (
+    <div className='container'>
+      <div className='headerContainer'>
+        <header>
+          <img src={headerCloud} alt='' className='headerCloud' />
+          <img
+            src={logoImg}
+            alt='#'
+            className='logoImg'
+            onClick={() => {
+              setInputValue('');
+              setSearch('');
+              setVisibleCount(BATCH_SIZE);
+            }}
+          />
+        </header>
+        <nav>
+          <img src={searchBg} alt='#' className='searchBg' />
+          <input
+            type='text'
+            placeholder='Search...'
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <div
+            className='btn'
+            onClick={() => {
+              setSearch(inputValue);
+            }}
+          >
+            <img src={btnBg} alt='#' className='btnBg' />
+            <img src={btnImg} alt='#' className='btnImg' />
+          </div>
+        </nav>
+      </div>
+      <div className='grid'>
+        {displayPokemons?.map((p: PokemonAPIResultURL) => (
+          <PokemonCard key={p.url} url={p.url} />
+        ))}
+        {!displayPokemons?.length && <p>No Pokémon found</p>}
+      </div>
+    </div>
+  );
 }
 
 export default App;
