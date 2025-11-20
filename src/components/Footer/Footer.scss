@@ -1,5 +1,10 @@
-.ground-img {
-  width: 15rem;
-  margin: 0;
-  padding: 0;
+.footer {
+  display: flex;
+  flex-direction: row;
+}
+
+.groundImg {
+  width: 12rem;
+  margin-top: 6rem;
+  display: block;
 }

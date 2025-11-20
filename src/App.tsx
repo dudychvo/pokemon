@@ -4,7 +4,6 @@ import { MainContent } from './components/MainContent/MainContent.tsx';
 import { PokeballPreloader } from './components/Preloader/PokeballPreloader';
 
 import './App.scss';
-import { Footer } from './components/Footer/Footer.tsx';
 
 function App() {
   const [loading, setLoading] = useState(true); // tracks loading state
@@ -27,10 +26,7 @@ function App() {
         </div>
       )}
       <div className={`main-wrapper ${loading ? 'hidden' : 'visible'}`}>
-        <div className='content-wrapper'>
-          <MainContent />
-        </div>
-        <Footer />
+        <MainContent />
       </div>
     </div>
   );

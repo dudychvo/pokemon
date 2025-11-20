@@ -6,6 +6,7 @@ import type {
   PokemonAPIResultURL,
 } from '../../types/PokemonAPIResult.ts';
 import { PokemonCard } from '../PokemonCard/PokemonCard.tsx';
+import { Footer } from '../Footer/Footer.tsx';
 
 import logoImg from '../../assets/logo-img.png';
 import headerCloud from '../../assets/header-cloud.png';
@@ -24,13 +25,6 @@ export const MainContent = () => {
   const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState<string>('');
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
-
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setLoading(false), 2000); // simulate loading
-  //   return () => clearTimeout(timer);
-  // }, []);
 
   useEffect(() => {
     const fetch = async () => {
@@ -112,6 +106,7 @@ export const MainContent = () => {
         ))}
         {!displayPokemons?.length && <p>No Pokémon found</p>}
       </div>
+      <Footer />
     </div>
   );
 };
