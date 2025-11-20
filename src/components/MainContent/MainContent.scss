@@ -95,6 +95,7 @@
     width: 85vw;
     margin: 0 auto;
     margin-top: 10rem;
+    min-height: 5.9rem;
 
     @media (max-width: 1150px) {
       grid-template-columns: repeat(2, 1fr);
