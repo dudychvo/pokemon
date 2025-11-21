@@ -11,7 +11,7 @@ export const Footer = () => {
     <>
       <div className='footer'>
         {Array.from({ length: 7 }).map((_, i) => (
-          <img key={i} className='groundImg' src={groundImg} alt='' />
+          <img key={i} className='groundImg' src={groundImg} alt='Ground' />
         ))}
       </div>
     </>
