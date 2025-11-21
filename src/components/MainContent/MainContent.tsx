@@ -16,14 +16,13 @@ import btnImg from '../../assets/btn-img.png';
 
 import './MainContent.scss';
 
-const BATCH_SIZE = 18;
-
 export const MainContent = () => {
   const [pokemonsData, setPokemonsData] = useState<PokemonAPIResult | null>(
     null
   );
   const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState<string>('');
+  const BATCH_SIZE = 18;
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
 
   useEffect(() => {
@@ -68,11 +67,16 @@ export const MainContent = () => {
   return (
     <div className='container'>
       <div className='headerContainer'>
+        <h1 className='sr-only'>Pokémon Dashboard</h1>
         <header>
-          <img src={headerCloud} alt='' className='headerCloud' />
+          <img
+            src={headerCloud}
+            alt='Header background cloud'
+            className='headerCloud'
+          />
           <img
             src={logoImg}
-            alt='#'
+            alt='Pokémon logo'
             className='logoImg'
             onClick={() => {
               setInputValue('');
@@ -82,10 +86,16 @@ export const MainContent = () => {
           />
         </header>
         <nav>
-          <img src={searchBg} alt='#' className='searchBg' />
+          <img
+            src={searchBg}
+            alt='Search background cloud'
+            className='searchBg'
+          />
           <input
             type='text'
             placeholder='Search...'
+            alt='Search'
+            aria-label='Search'
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
@@ -95,8 +105,8 @@ export const MainContent = () => {
               setSearch(inputValue);
             }}
           >
-            <img src={btnBg} alt='#' className='btnBg' />
-            <img src={btnImg} alt='#' className='btnImg' />
+            <img src={btnBg} alt='Search button' className='btnBg' />
+            <img src={btnImg} alt='Search icon' className='btnImg' />
           </div>
         </nav>
       </div>
@@ -104,7 +114,15 @@ export const MainContent = () => {
         {displayPokemons?.map((p: PokemonAPIResultURL) => (
           <PokemonCard key={p.url} url={p.url} />
         ))}
-        {!displayPokemons?.length && <p>No Pokémon found</p>}
+        {!displayPokemons?.length && (
+          <div className='notFound'>
+            <p>No Pokémon found</p>
+            <img
+              src='https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExczd4b3U1NWU1dDE2cmwzcGNucXc0c21oaGltems3dnl0dTFsZW8xOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6nWhy3ulBL7GSCvKw6/giphy.gif'
+              alt='No Pokémon found GIF'
+            />
+          </div>
+        )}
       </div>
       <Footer />
     </div>
