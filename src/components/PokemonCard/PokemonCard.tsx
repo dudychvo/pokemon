@@ -10,8 +10,6 @@ import './PokemonCard.scss';
 export const PokemonCard = ({ url }: PokemonInfoURL) => {
   const [pokemon, setPokemon] = useState<PokemonInfo | null>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
-  const abilityOneRef = useRef<HTMLButtonElement>(null);
-  const abilityTwoRef = useRef<HTMLButtonElement>(null);
   const [showFront, setShowFront] = useState(true);
 
   useEffect(() => {
@@ -32,31 +30,14 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
   }, [pokemon]);
 
   const pokemonName = pokemon?.name.replace(/^./, (c) => c.toUpperCase());
-  const getAbilityName = (abilityIndex: number) => {
-    return pokemon?.abilities?.[abilityIndex]?.ability.name.replace(/^./, (c) =>
+
+  const getTypeName = (typeIndex: number) => {
+    return pokemon?.types?.[typeIndex]?.type.name.replace(/^./, (c) =>
       c.toUpperCase()
     );
   };
-
-  useEffect(() => {
-    if (!pokemon) return;
-
-    // Ability 1
-    if (abilityOneRef.current && pokemon.abilities[0]?.ability?.name) {
-      const length = pokemon.abilities[0].ability.name.length;
-      abilityOneRef.current.classList.add(
-        length > 9 ? 'pk-ablt-one-wide' : 'pk-ablt-one-narrow'
-      );
-    }
-
-    // Ability 2
-    if (abilityTwoRef.current && pokemon.abilities[1]?.ability?.name) {
-      const length = pokemon.abilities[1].ability.name.length;
-      abilityTwoRef.current.classList.add(
-        length > 20 ? 'pk-ablt-two-wide' : 'pk-ablt-two-narrow'
-      );
-    }
-  }, [pokemon]);
+  const typeOne = getTypeName(0)?.toLowerCase();
+  const typeTwo = getTypeName(1)?.toLowerCase();
 
   const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const w = e.currentTarget.naturalWidth;
@@ -66,17 +47,17 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
   return (
     <>
       <div className='pk-container'>
-        <img src={cardBg} alt='#' className='pk-bg' />
+        <img src={cardBg} alt='Pokemon card' className='pk-bg' />
         <div className='pokemon'>
-          <p className='pk-num'>{'#' + pokemon?.id}</p>
-          {getAbilityName(0) && (
-            <button ref={abilityOneRef} className='pk-ablt-one'>
-              {getAbilityName(0)}
+          <h2 className='pk-num'>{'#' + pokemon?.id}</h2>
+          {getTypeName(0) && (
+            <button className={`pk-type-one type-${typeOne}`}>
+              {getTypeName(0)}
             </button>
           )}
-          {getAbilityName(1) && (
-            <button ref={abilityTwoRef} className='pk-ablt-two'>
-              {getAbilityName(1)}
+          {getTypeName(1) && (
+            <button className={`pk-type-two type-${typeTwo}`}>
+              {getTypeName(1)}
             </button>
           )}
           <h2 ref={nameRef}>{pokemonName}</h2>

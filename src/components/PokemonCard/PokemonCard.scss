@@ -1,76 +1,5 @@
+@use '../../variables/colors';
 @use '../../variables/rc';
-
-.pokemon-card {
-  width: 21rem;
-  height: 12.5rem;
-  border-radius: 5px;
-  background-color: #77b35b;
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-  .pk-section-one {
-    display: flex;
-    justify-content: space-between;
-    margin: 1.18rem 1.5rem 0 1rem;
-
-    .pk-power {
-      .pk-power-btn {
-        height: 1.32rem;
-        padding: 0 0.6rem;
-        border-radius: 5px;
-        background-color: #bfc66b;
-        color: white;
-        font-size: 0.7rem;
-
-        &:first-child {
-          margin-right: 0.5rem;
-        }
-      }
-    }
-
-    .pk-num {
-      font-size: 1.15rem;
-      font-weight: 600;
-    }
-  }
-
-  .pk-section-two {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 1.5rem 0 1rem;
-
-    .pk-info {
-      margin-top: 0.5rem;
-
-      .pk-info-name {
-        font-size: 1.625rem;
-      }
-
-      .pk-info-desc {
-        margin-top: 0.2rem;
-        font-size: 0.8rem;
-        max-width: 10rem;
-        line-height: 1.3;
-      }
-
-      .pk-info-btn {
-        background-color: #bfc66b;
-        color: white;
-        height: 1.75rem;
-        padding: 0 0.6rem;
-        border-radius: 5px;
-        font-size: 0.8rem;
-        margin-top: 0.5rem;
-      }
-    }
-
-    .pk-img {
-      width: 8rem;
-      height: 8rem;
-      margin-top: 0.8rem;
-    }
-  }
-}
 
 .pk-container {
   position: relative;
@@ -92,35 +21,17 @@
       top: 3.5rem;
       left: 2rem;
       font-size: 1.5rem;
-      background-color: #f8c633;
+      background-color: colors.$colors-num;
       clip-path: rc.$rc;
       padding: 0 0.5rem;
     }
 
-    .pk-ablt-one-wide {
-      top: 1.75rem;
-      left: 8.5rem;
-      font-size: 0.875rem;
-      width: max-content;
-      padding: 0 0.5rem;
-      background-color: #166eb5;
-      color: white;
-      clip-path: rc.$rc;
-      transition: transform 0.25s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
-
-    .pk-ablt-one-narrow {
-      top: 1.75rem;
-      left: 8.5rem;
+    .pk-type-one {
+      top: 2.25rem;
+      left: 10rem;
       font-size: 1rem;
       width: max-content;
       padding: 0 0.5rem;
-      background-color: #166eb5;
-      color: white;
       clip-path: rc.$rc;
       transition: transform 0.25s ease;
 
@@ -129,20 +40,103 @@
       }
     }
 
-    .pk-ablt-two {
-      top: 3.75rem;
-      left: 7.5rem;
+    .pk-type-two {
+      top: 4.25rem;
+      left: 8rem;
       font-size: 1rem;
       width: max-content;
       padding: 0 0.5rem;
-      background-color: #166eb5;
-      color: white;
       clip-path: rc.$rc;
       transition: transform 0.25s ease;
 
       &:hover {
         transform: scale(1.05);
       }
+    }
+
+    .type-normal {
+      background-color: colors.$colors-normal;
+      color: black;
+    }
+    .type-fighting {
+      background-color: colors.$colors-fighting;
+      color: black;
+    }
+    .type-flying {
+      background-color: colors.$colors-flying;
+      color: black;
+    }
+    .type-poison {
+      background-color: colors.$colors-poison;
+      color: black;
+    }
+    .type-ground {
+      background-color: colors.$colors-ground;
+      color: black;
+    }
+    .type-rock {
+      background-color: colors.$colors-rock;
+      color: black;
+    }
+    .type-bug {
+      background-color: colors.$colors-bug;
+      color: black;
+    }
+    .type-ghost {
+      background-color: colors.$colors-ghost;
+      color: black;
+    }
+    .type-steel {
+      background-color: colors.$colors-steel;
+      color: black;
+    }
+    .type-fire {
+      background-color: colors.$colors-fire;
+      color: black;
+    }
+    .type-water {
+      background-color: colors.$colors-water;
+      color: black;
+    }
+    .type-grass {
+      background-color: colors.$colors-grass;
+      color: black;
+    }
+    .type-electric {
+      background-color: colors.$colors-electric;
+      color: black;
+    }
+    .type-psychic {
+      background-color: colors.$colors-psychic;
+      color: black;
+    }
+    .type-ice {
+      background-color: colors.$colors-ice;
+      color: black;
+    }
+    .type-dragon {
+      background-color: colors.$colors-dragon;
+      color: black;
+    }
+    .type-dark {
+      background-color: colors.$colors-dark;
+      color: black;
+    }
+    .type-fairy {
+      background-color: colors.$colors-fairy;
+      color: black;
+    }
+    .type-unknown {
+      background-color: colors.$colors-unknown;
+      color: black;
+    }
+    .type-stellar {
+      background-color: colors.$colors-stellar;
+      color: black;
+    }
+    .type-shadow {
+      background-color: colors.$colors-shadow;
+      color: black;
     }
 
     .pk-name-wide {
