@@ -28,7 +28,7 @@ export const MainContent = () => {
   useEffect(() => {
     const fetch = async () => {
       const result = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=18'
+        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1000'
       );
       setPokemonsData(result.data);
     };
@@ -42,30 +42,20 @@ export const MainContent = () => {
   const allPokemons = search ? filteredPokemons : pokemonsData?.results;
   const displayPokemons = allPokemons?.slice(0, visibleCount);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 50
-      ) {
-        if (allPokemons && visibleCount < allPokemons.length) {
-          setVisibleCount((prev) =>
-            Math.min(prev + BATCH_SIZE, allPokemons.length)
-          );
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [allPokemons, visibleCount]);
+  const handleLoadMore = () => {
+    if (allPokemons && visibleCount < allPokemons.length) {
+      setVisibleCount((prev) =>
+        Math.min(prev + BATCH_SIZE, allPokemons.length)
+      );
+    }
+  };
 
   useEffect(() => {
     setVisibleCount(BATCH_SIZE);
   }, [search]);
 
   return (
-    <div className='container'>
+    <div className='container' id='container'>
       <div className='headerContainer'>
         <h1 className='sr-only'>Pokémon Dashboard</h1>
         <header>
@@ -124,7 +114,7 @@ export const MainContent = () => {
           </div>
         )}
       </div>
-      <Footer />
+      <Footer loadMore={handleLoadMore} />
     </div>
   );
 };
