@@ -18,8 +18,7 @@ function App() {
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
-  //
-  //
+
   const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   useEffect(() => {
@@ -62,9 +61,7 @@ function App() {
       </div>
       <div
         id='scrollTopBtn'
-        className={`scrollTopWrapper ${
-          showScrollBtn ? 'show' : 'hide'
-        }`}
+        className={`scrollTopWrapper ${showScrollBtn ? 'show' : 'hide'}`}
       >
         <img
           src={scrollUp}
