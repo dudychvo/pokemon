@@ -1,4 +1,7 @@
+@use '../../variables/rc';
+
 .footer {
+  position: relative;
   display: flex;
   flex-direction: row;
 }
@@ -7,4 +10,69 @@
   width: 12rem;
   margin-top: 6rem;
   display: block;
+}
+
+.more-brn {
+  position: absolute;
+  top: 3rem;
+  left: calc((100vw - 109px) / 2);
+  transition: transform 0.25s ease;
+
+  p {
+    position: absolute;
+    top: 1.25rem;
+    left: 0.8rem;
+    color: white;
+    font-size: 1.15rem;
+    transition: transform 0.25s ease;
+  }
+
+  img {
+    width: 6.5rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+
+    p {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.github {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 10.3rem;
+  left: 2rem;
+  background-color: rgba($color: #fff, $alpha: 0.4);
+  padding: 0.3rem;
+  clip-path: rc.$rc;
+  transition: transform 0.25s ease;
+
+  img {
+    width: 2rem;
+    transition: transform 0.25s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+
+    img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.footerText {
+  position: absolute;
+  top: 10.25rem;
+  left: 48.9rem;
+  font-size: 1.5rem;
+  background-color: rgba($color: #fff, $alpha: 0.4);
+  padding: 0 0.5rem;
+  clip-path: rc.$rc;
 }
