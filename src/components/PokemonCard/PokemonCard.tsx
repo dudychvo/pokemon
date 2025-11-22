@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import {
+  Description,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+} from '@headlessui/react';
 
 import type { PokemonInfo, PokemonInfoURL } from '../../types/PokemonInfo';
 
@@ -44,6 +50,8 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
     e.currentTarget.classList.add(w > 87 ? 'pk-img-wide' : 'pk-img-narrow');
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className='pk-container'>
@@ -61,7 +69,34 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
             </button>
           )}
           <h2 ref={nameRef}>{pokemonName}</h2>
-          <button className='pk-more'>Know More</button>
+          <button className='pk-more' onClick={() => setIsOpen(true)}>
+            Know More
+          </button>
+          <Dialog
+            open={isOpen}
+            onClose={() => setIsOpen(false)}
+            className='modal'
+          >
+            {/* Overlay */}
+            <div className='overlay' aria-hidden='true' />
+
+            {/* Centering wrapper */}
+            <div className='modal-wrapper'>
+              <DialogPanel className='modal-panel'>
+                <DialogTitle>Deactivate account</DialogTitle>
+                <Description>
+                  This will permanently deactivate your account
+                </Description>
+
+                <p>Are you sure you want to deactivate your account?</p>
+
+                <div className='buttons'>
+                  <button onClick={() => setIsOpen(false)}>Cancel</button>
+                  <button onClick={() => setIsOpen(false)}>Deactivate</button>
+                </div>
+              </DialogPanel>
+            </div>
+          </Dialog>
           <img
             src={
               showFront
