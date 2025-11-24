@@ -1,5 +1,33 @@
 $colors-bg: #79caf9;
 $colors-num: #f8c633;
+$colors-modal-all: rgba(
+  $color: #000000,
+  $alpha: 0.25,
+);
+$colors-modal-hp: rgba(
+  $color: #dd092f,
+  $alpha: 0.3,
+);
+$colors-modal-attack: rgba(
+  $color: #f77f00,
+  $alpha: 0.3,
+);
+$colors-modal-defence: rgba(
+  $color: #1d4ed8,
+  $alpha: 0.3,
+);
+$colors-modal-s-attack: rgba(
+  $color: #7c3aed,
+  $alpha: 0.3,
+);
+$colors-modal-s-defence: rgba(
+  $color: #14b8a6,
+  $alpha: 0.3,
+);
+$colors-modal-speed: rgba(
+  $color: #facc15,
+  $alpha: 0.3,
+);
 
 $colors-normal: #a4a4a4;
 $colors-fighting: #cf8354;
