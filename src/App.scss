@@ -4,9 +4,8 @@
 .app {
   width: 100vw;
   min-height: 100vh;
-  font-family: 'Pixelify Sans', sans-serif;
-  overflow-x: hidden;
   scrollbar-width: none;
+  overflow-x: hidden;
 }
 
 /* Preloader wrapper */
@@ -90,6 +89,6 @@
 }
 
 .scrollTopWrapper.hide {
-  display: none;
+  opacity: 0;
   pointer-events: none;
 }
