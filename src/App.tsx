@@ -31,7 +31,7 @@ function App() {
     };
 
     window.addEventListener('scroll', onScroll);
-    onScroll(); // initial run
+    onScroll();
 
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -47,8 +47,7 @@ function App() {
       });
     };
   }, []);
-  //
-  //
+
   return (
     <div className='app' id='app'>
       {showPreloader && (
