@@ -129,6 +129,10 @@
     @media (max-width: 780px) {
       grid-template-columns: 1fr;
     }
+
+    @media (min-width: 1560px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 }
 
