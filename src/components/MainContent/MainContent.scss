@@ -103,7 +103,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    width: 85vw;
+    width: max-content;
     margin: 0 auto;
     margin-top: 10rem;
     min-height: 5.9rem;
@@ -129,5 +129,18 @@
     @media (max-width: 780px) {
       grid-template-columns: 1fr;
     }
+  }
+}
+
+@media (max-width: 780px) {
+  .container .headerContainer nav {
+    margin-left: calc((100vw - 15rem) / 2 - 2.25rem);
+  }
+}
+
+@media (max-width: 440px) {
+  .container .headerContainer header .logoImg {
+    width: 40vw;
+    left: 29.5vw;
   }
 }
