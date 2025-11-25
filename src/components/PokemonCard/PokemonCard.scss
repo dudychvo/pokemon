@@ -21,6 +21,7 @@
       top: 3.5rem;
       left: 2rem;
       font-size: 1.5rem;
+      font-weight: 500;
       background-color: colors.$colors-num;
       clip-path: rc.$rc;
       padding: 0 0.5rem;
@@ -58,12 +59,14 @@
       top: 6.5rem;
       left: 3.5rem;
       font-size: 1.3rem;
+      font-weight: 600;
     }
 
     .pk-name-narrow {
       top: 6.5rem;
       left: 3.5rem;
       font-size: 1.4rem;
+      font-weight: 600;
     }
 
     .pk-more {
@@ -135,6 +138,7 @@
         top: 13rem;
         left: 5rem;
         font-size: 3.5rem;
+        font-weight: 600;
       }
 
       .pk-m-num {
@@ -142,6 +146,7 @@
         top: 9rem;
         left: 11rem;
         font-size: 2.5rem;
+        font-weight: 500;
         background-color: colors.$colors-num;
         clip-path: rc.$rc;
         padding: 0 0.5rem;
@@ -409,7 +414,7 @@
         top: 5rem;
         left: 73rem;
         font-size: 3rem;
-        background-color: red;
+        background-color: colors.$colors-modal-close;
         clip-path: rc.$rc;
         padding: 0 0.5rem;
       }
