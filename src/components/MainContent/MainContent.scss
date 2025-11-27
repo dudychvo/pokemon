@@ -29,10 +29,10 @@
       }
 
       .logoImg {
-        width: 35vw;
+        width: 415px;
         position: absolute;
-        top: 2rem;
-        left: calc((100vw - 35vw) / 2);
+        top: 16px;
+        left: calc((100vw - 415px) / 2);
         transition: transform 0.25s ease;
 
         &:hover {
@@ -44,22 +44,23 @@
 
     nav {
       position: relative;
-      margin-left: calc((100vw - 15rem) / 2);
+      width: 310px;
+      margin: auto;
       margin-top: 2rem;
 
       .searchBg {
         position: absolute;
-        width: 15rem;
+        width: 240px;
       }
 
       input {
         position: absolute;
         color: black;
         outline: none;
-        top: 3.4rem;
-        left: 2rem;
+        top: 54.5px;
+        left: 32px;
         font-size: 1.5rem;
-        max-width: 11rem;
+        max-width: 176px;
         background-color: transparent;
 
         &::placeholder {
@@ -69,22 +70,22 @@
 
       .btn {
         position: absolute;
-        width: 3.5rem;
-        height: 3.5rem;
-        top: 1.25rem;
-        left: 16rem;
+        width: 56px;
+        height: 56px;
+        top: 20px;
+        left: 256px;
 
         .btnBg {
           position: absolute;
-          width: 3.5rem;
+          width: 56px;
           transition: transform 0.25s ease;
         }
 
         .btnImg {
           position: absolute;
-          width: 2rem;
-          top: 0.75rem;
-          left: 0.75rem;
+          width: 32px;
+          top: 12px;
+          left: 12px;
           transition: transform 0.25s ease;
         }
 
@@ -106,18 +107,18 @@
     width: max-content;
     margin: 0 auto;
     margin-top: 10rem;
-    min-height: 5.9rem;
+    min-height: 95px;
 
     .notFound {
       display: flex;
 
       p {
-        width: 9rem;
+        width: 144px;
       }
 
       img {
-        width: 6rem;
-        height: 6rem;
+        width: 96px;
+        height: 96px;
         margin-left: 22rem;
       }
     }
@@ -136,9 +137,24 @@
   }
 }
 
+@media (max-width: 1000px) {
+  .container .headerContainer header .logoImg {
+    width: 350px;
+    left: calc((100vw - 350px) / 2);
+  }
+}
+
 @media (max-width: 780px) {
-  .container .headerContainer nav {
-    margin-left: calc((100vw - 15rem) / 2 - 2.25rem);
+  .container .headerContainer header .logoImg {
+    width: 280px;
+    left: calc((100vw - 280px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .container .headerContainer header .logoImg {
+    width: 230px;
+    left: calc((100vw - 230px) / 2);
   }
 }
 
