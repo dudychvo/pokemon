@@ -6,7 +6,7 @@
 
   .pk-bg {
     display: block;
-    width: 21rem;
+    width: 336px;
   }
 
   .pokemon {
@@ -18,8 +18,8 @@
     }
 
     .pk-num {
-      top: 3.5rem;
-      left: 2rem;
+      top: 56px;
+      left: 32px;
       font-size: 1.5rem;
       font-weight: 500;
       background-color: colors.$colors-num;
@@ -28,50 +28,40 @@
     }
 
     .pk-type-one {
-      top: 2.25rem;
-      left: 10rem;
+      top: 36px;
+      left: 160px;
       font-size: 1rem;
       width: max-content;
       padding: 0 0.5rem;
       clip-path: rc.$rc;
-      transition: transform 0.25s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
     }
 
     .pk-type-two {
-      top: 4.25rem;
-      left: 8rem;
+      top: 68px;
+      left: 128px;
       font-size: 1rem;
       width: max-content;
       padding: 0 0.5rem;
       clip-path: rc.$rc;
-      transition: transform 0.25s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
     }
 
     .pk-name-wide {
-      top: 6.5rem;
-      left: 3.5rem;
+      top: 104px;
+      left: 56px;
       font-size: 1.3rem;
       font-weight: 600;
     }
 
     .pk-name-narrow {
-      top: 6.5rem;
-      left: 3.5rem;
+      top: 104px;
+      left: 56px;
       font-size: 1.4rem;
       font-weight: 600;
     }
 
     .pk-more {
-      top: 9.35rem;
-      left: 2.25rem;
+      top: 150px;
+      left: 36px;
       font-size: 1.15rem;
       width: max-content;
       padding: 0 0.5rem;
@@ -87,9 +77,9 @@
 
     .pk-img-narrow {
       height: 100%;
-      max-height: 5.75rem;
-      top: 5.5rem;
-      left: 12.5rem;
+      max-height: 92px;
+      top: 88px;
+      left: 200px;
 
       &:hover {
         cursor: pointer;
@@ -98,9 +88,9 @@
 
     .pk-img-wide {
       height: 100%;
-      max-height: 5.75rem;
-      top: 5.5rem;
-      left: 11.5rem;
+      max-height: 92px;
+      top: 88px;
+      left: 184px;
 
       &:hover {
         cursor: pointer;
@@ -112,316 +102,112 @@
 .modal {
   position: fixed;
   inset: 0;
-  z-index: 9999; // above everything
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 
   .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
   }
 
-  .modal-wrapper {
-    position: fixed;
-    inset: 0;
+  .modal-panel {
+    background: url(../../assets/modal-bg.png) no-repeat center center;
+    background-size: cover;
+    padding: 2rem;
+    max-width: 750px;
+    width: 60vw;
+    max-height: 510px;
+    height: 60vh;
+    clip-path: rc.$rc-m;
+    z-index: 10;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
 
-    .modal-panel {
-      width: 100vw;
-      height: 100vh;
-      background: url(../../assets/card-bg.png) no-repeat center / cover;
-      position: relative;
+    .pk-m-section-one {
+      width: 40%;
 
-      .pk-m-name {
-        position: absolute;
-        top: 13rem;
-        left: 5rem;
-        font-size: 3.5rem;
-        font-weight: 600;
+      .pk-m-num-title {
+        margin: auto;
+        font-size: 1.8rem;
+        width: fit-content;
       }
 
       .pk-m-num {
-        position: absolute;
-        top: 9rem;
-        left: 11rem;
-        font-size: 2.5rem;
-        font-weight: 500;
+        margin: auto;
+        font-size: 2rem;
+        width: fit-content;
         background-color: colors.$colors-num;
         clip-path: rc.$rc;
         padding: 0 0.5rem;
       }
-      .pk-m-img {
-        position: absolute;
-        top: 24rem;
-        left: 9.5rem;
-        height: 100%;
-        max-height: 18rem;
+
+      .pk-m-name-title {
+        margin: auto;
+        font-size: 1.8rem;
+        width: fit-content;
       }
 
-      //
-
-      .pk-m-type {
-        position: absolute;
-        top: 3.5rem;
-        left: 33rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
-      }
-
-      .pk-m-type-one {
-        position: absolute;
-        top: 7.25rem;
-        left: 35rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
+      .pk-m-name {
+        margin: auto;
+        font-size: 2rem;
+        width: fit-content;
+        background-color: colors.$colors-num;
         clip-path: rc.$rc;
-        transition: transform 0.25s ease;
+        padding: 0 0.5rem;
+      }
 
-        &:hover {
-          transform: scale(1.05);
+      .pk-m-img-container {
+        margin: 1rem auto;
+        width: fit-content;
+
+        .pk-m-img {
+          height: 170px;
         }
       }
+    }
 
-      .pk-m-type-two {
-        position: absolute;
-        top: 7.25rem;
-        left: 45.5rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-        transition: transform 0.25s ease;
+    .pk-m-name-title {
+      font-size: 2.3rem;
+    }
 
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
+    .pk-m-cry {
+      margin: auto;
+      font-size: 1.8rem;
+      width: fit-content;
+    }
 
-      //
-
-      .pk-m-abilities {
-        position: absolute;
-        top: 11rem;
-        left: 33rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
-      }
-
-      .pk-m-ability-one {
-        position: absolute;
-        top: 14.5rem;
-        left: 30rem;
-        font-size: 2.25rem;
-        background-color: rgba($color: #000000, $alpha: 0.3);
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-      }
-
-      .pk-m-ability-two {
-        position: absolute;
-        top: 14.5rem;
-        left: 44rem;
-        font-size: 2.25rem;
-        background-color: rgba($color: #000000, $alpha: 0.3);
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-      }
-
-      //
-
-      .pk-m-body-m {
-        position: absolute;
-        top: 18rem;
-        left: 33rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
-      }
-
-      .pk-m-height {
-        position: absolute;
-        top: 21.75rem;
-        left: 32rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-all;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-      }
-
-      .pk-m-weight {
-        position: absolute;
-        top: 21.75rem;
-        left: 45rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-all;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-      }
-
-      .pk-m-base-exp {
-        position: absolute;
-        top: 25.5rem;
-        left: 36rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-all;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-      }
-
-      //
-
-      .pk-m-cry {
-        position: absolute;
-        top: 22rem;
-        left: 62rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
-      }
+    .pk-m-cry-container {
+      width: fit-content;
+      margin: auto;
 
       .pk-m-cry-one {
-        position: absolute;
-        top: 26rem;
-        left: 62rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-all;
-        padding: 0.3rem 0.3rem 0.1rem 0.4rem;
+        margin-right: 1rem;
+        font-size: 1.8rem;
+        width: fit-content;
+        background-color: colors.$colors-num;
         clip-path: rc.$rc;
+        padding: 0 0.5rem;
       }
 
       .pk-m-cry-two {
-        position: absolute;
-        top: 26rem;
-        left: 68rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-all;
-        padding: 0.3rem 0.3rem 0.1rem 0.4rem;
-        clip-path: rc.$rc;
-      }
-
-      //
-
-      .pk-m-stats {
-        position: absolute;
-        top: 29rem;
-        left: 33rem;
-        font-size: 2.25rem;
-        width: max-content;
-        padding: 0 1rem;
-      }
-
-      .pk-m-hp {
-        position: absolute;
-        top: 32.5rem;
-        left: 35rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-hp;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-
-        span {
-          margin-right: 2rem;
-        }
-      }
-
-      .pk-m-attack {
-        position: absolute;
-        top: 32.5rem;
-        left: 46rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-attack;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-
-        span {
-          margin-right: 2rem;
-        }
-      }
-
-      .pk-m-defense {
-        position: absolute;
-        top: 32.5rem;
-        left: 62.5rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-defence;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-
-        span {
-          margin-right: 2rem;
-        }
-      }
-
-      .pk-m-special-attack {
-        position: absolute;
-        top: 36rem;
-        left: 35rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-s-attack;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-
-        span {
-          margin-right: 2rem;
-        }
-      }
-
-      .pk-m-special-defense {
-        position: absolute;
-        top: 36rem;
-        left: 54.5rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-s-defence;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-
-        span {
-          margin-right: 2rem;
-        }
-      }
-
-      .pk-m-speed {
-        position: absolute;
-        top: 39.5rem;
-        left: 50.4rem;
-        font-size: 2.25rem;
-        background-color: colors.$colors-modal-speed;
-        width: max-content;
-        padding: 0 1rem;
-        clip-path: rc.$rc;
-
-        span {
-          margin-right: 1.1rem;
-        }
-      }
-
-      .m-close {
-        position: absolute;
-        top: 5rem;
-        left: 73rem;
-        font-size: 3rem;
-        background-color: colors.$colors-modal-close;
+        font-size: 1.8rem;
+        width: fit-content;
+        background-color: colors.$colors-num;
         clip-path: rc.$rc;
         padding: 0 0.5rem;
       }
     }
+
+    .pk-m-section-two {
+      width: 60%;
+    }
   }
 }
 
+//
 .type-normal {
   background-color: colors.$colors-normal;
   color: black;
@@ -506,3 +292,316 @@
   background-color: colors.$colors-shadow;
   color: black;
 }
+
+// .modal {
+//   position: fixed;
+//   inset: 0;
+//   z-index: 9999; // above everything
+
+//   .overlay {
+//     position: fixed;
+//     inset: 0;
+//     background: rgba(0, 0, 0, 0.6);
+//   }
+
+//   .modal-wrapper {
+//     position: fixed;
+//     inset: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     .modal-panel {
+//       width: 100vw;
+//       height: 100vh;
+//       background: url(../../assets/card-bg.png) no-repeat center / cover;
+//       position: relative;
+
+//       .pk-m-name {
+//         position: absolute;
+//         top: 13rem;
+//         left: 5rem;
+//         font-size: 3.5rem;
+//         font-weight: 600;
+//       }
+
+//       .pk-m-num {
+//         position: absolute;
+//         top: 9rem;
+//         left: 11rem;
+//         font-size: 2.5rem;
+//         font-weight: 500;
+//         background-color: colors.$colors-num;
+//         clip-path: rc.$rc;
+//         padding: 0 0.5rem;
+//       }
+//       .pk-m-img {
+//         position: absolute;
+//         top: 24rem;
+//         left: 9.5rem;
+//         height: 100%;
+//         max-height: 18rem;
+//       }
+
+//       //
+
+//       .pk-m-type {
+//         position: absolute;
+//         top: 3.5rem;
+//         left: 33rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//       }
+
+//       .pk-m-type-one {
+//         position: absolute;
+//         top: 7.25rem;
+//         left: 35rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//         transition: transform 0.25s ease;
+
+//         &:hover {
+//           transform: scale(1.05);
+//         }
+//       }
+
+//       .pk-m-type-two {
+//         position: absolute;
+//         top: 7.25rem;
+//         left: 45.5rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//         transition: transform 0.25s ease;
+
+//         &:hover {
+//           transform: scale(1.05);
+//         }
+//       }
+
+//       //
+
+//       .pk-m-abilities {
+//         position: absolute;
+//         top: 11rem;
+//         left: 33rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//       }
+
+//       .pk-m-ability-one {
+//         position: absolute;
+//         top: 14.5rem;
+//         left: 30rem;
+//         font-size: 2.25rem;
+//         background-color: rgba($color: #000000, $alpha: 0.3);
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       .pk-m-ability-two {
+//         position: absolute;
+//         top: 14.5rem;
+//         left: 44rem;
+//         font-size: 2.25rem;
+//         background-color: rgba($color: #000000, $alpha: 0.3);
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       //
+
+//       .pk-m-body-m {
+//         position: absolute;
+//         top: 18rem;
+//         left: 33rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//       }
+
+//       .pk-m-height {
+//         position: absolute;
+//         top: 21.75rem;
+//         left: 32rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-all;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       .pk-m-weight {
+//         position: absolute;
+//         top: 21.75rem;
+//         left: 45rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-all;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       .pk-m-base-exp {
+//         position: absolute;
+//         top: 25.5rem;
+//         left: 36rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-all;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       //
+
+//       .pk-m-cry {
+//         position: absolute;
+//         top: 22rem;
+//         left: 62rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//       }
+
+//       .pk-m-cry-one {
+//         position: absolute;
+//         top: 26rem;
+//         left: 62rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-all;
+//         padding: 0.3rem 0.3rem 0.1rem 0.4rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       .pk-m-cry-two {
+//         position: absolute;
+//         top: 26rem;
+//         left: 68rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-all;
+//         padding: 0.3rem 0.3rem 0.1rem 0.4rem;
+//         clip-path: rc.$rc;
+//       }
+
+//       //
+
+//       .pk-m-stats {
+//         position: absolute;
+//         top: 29rem;
+//         left: 33rem;
+//         font-size: 2.25rem;
+//         width: max-content;
+//         padding: 0 1rem;
+//       }
+
+//       .pk-m-hp {
+//         position: absolute;
+//         top: 32.5rem;
+//         left: 35rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-hp;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+
+//         span {
+//           margin-right: 2rem;
+//         }
+//       }
+
+//       .pk-m-attack {
+//         position: absolute;
+//         top: 32.5rem;
+//         left: 46rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-attack;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+
+//         span {
+//           margin-right: 2rem;
+//         }
+//       }
+
+//       .pk-m-defense {
+//         position: absolute;
+//         top: 32.5rem;
+//         left: 62.5rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-defence;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+
+//         span {
+//           margin-right: 2rem;
+//         }
+//       }
+
+//       .pk-m-special-attack {
+//         position: absolute;
+//         top: 36rem;
+//         left: 35rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-s-attack;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+
+//         span {
+//           margin-right: 2rem;
+//         }
+//       }
+
+//       .pk-m-special-defense {
+//         position: absolute;
+//         top: 36rem;
+//         left: 54.5rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-s-defence;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+
+//         span {
+//           margin-right: 2rem;
+//         }
+//       }
+
+//       .pk-m-speed {
+//         position: absolute;
+//         top: 39.5rem;
+//         left: 50.4rem;
+//         font-size: 2.25rem;
+//         background-color: colors.$colors-modal-speed;
+//         width: max-content;
+//         padding: 0 1rem;
+//         clip-path: rc.$rc;
+
+//         span {
+//           margin-right: 1.1rem;
+//         }
+//       }
+
+//       .m-close {
+//         position: absolute;
+//         top: 5rem;
+//         left: 73rem;
+//         font-size: 3rem;
+//         background-color: colors.$colors-modal-close;
+//         clip-path: rc.$rc;
+//         padding: 0 0.5rem;
+//       }
+//     }
+//   }
+// }
