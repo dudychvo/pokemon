@@ -7,28 +7,28 @@
   overflow-x: hidden;
 
   .groundImg {
-    width: 12rem;
+    width: 192px;
     margin-top: 6rem;
     display: block;
   }
 
   .more-btn {
     position: absolute;
-    top: 3rem;
+    top: 48px;
     left: calc((100vw - 109px) / 2);
     transition: transform 0.25s ease;
 
     p {
       position: absolute;
-      top: 1.25rem;
-      left: 0.8rem;
+      top: 20px;
+      left: 12px;
       color: white;
       font-size: 1.15rem;
       transition: transform 0.25s ease;
     }
 
     img {
-      width: 6.5rem;
+      width: 104px;
     }
 
     &:hover {
@@ -43,8 +43,8 @@
 
   .github {
     position: absolute;
-    top: 9.8rem;
-    left: 2rem;
+    top: 157px;
+    left: 32px;
     background-color: rgba($color: #fff, $alpha: 0.4);
     padding: 0.3rem;
     clip-path: rc.$rc;
@@ -55,7 +55,7 @@
     }
 
     img {
-      width: 2rem;
+      width: 32px;
       transition: transform 0.25s ease;
     }
 
@@ -71,8 +71,8 @@
 
   .footerText {
     position: absolute;
-    top: 10.25rem;
-    right: 2rem;
+    top: 164px;
+    right: 32px;
     font-size: 1.5rem;
     background-color: rgba($color: #fff, $alpha: 0.4);
     padding: 0 0.5rem;
@@ -90,7 +90,7 @@
     margin-top: 0.45rem;
 
     img {
-      width: 1.7rem;
+      width: 27px;
       padding-bottom: 0.01rem;
     }
   }
@@ -106,7 +106,7 @@
     margin-top: 0.7rem;
 
     img {
-      width: 1rem;
+      width: 16px;
       padding-bottom: 0.01rem;
     }
   }
@@ -122,7 +122,7 @@
     margin-top: 0.7rem;
 
     img {
-      width: 0.8rem;
+      width: 13px;
       padding-bottom: 0.01rem;
     }
   }
