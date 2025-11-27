@@ -119,7 +119,7 @@
     padding: 2rem;
     max-width: 750px;
     width: 60vw;
-    max-height: 510px;
+    max-height: 450px;
     height: 60vh;
     clip-path: rc.$rc-m;
     z-index: 10;
@@ -128,16 +128,17 @@
 
     .pk-m-section-one {
       width: 40%;
+      margin: auto;
 
       .pk-m-num-title {
         margin: auto;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         width: fit-content;
       }
 
       .pk-m-num {
         margin: auto;
-        font-size: 2rem;
+        font-size: 1.6rem;
         width: fit-content;
         background-color: colors.$colors-num;
         clip-path: rc.$rc;
@@ -146,13 +147,13 @@
 
       .pk-m-name-title {
         margin: auto;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         width: fit-content;
       }
 
       .pk-m-name {
         margin: auto;
-        font-size: 2rem;
+        font-size: 1.6rem;
         width: fit-content;
         background-color: colors.$colors-num;
         clip-path: rc.$rc;
@@ -164,50 +165,303 @@
         width: fit-content;
 
         .pk-m-img {
-          height: 170px;
+          height: 150px;
         }
       }
-    }
 
-    .pk-m-name-title {
-      font-size: 2.3rem;
-    }
-
-    .pk-m-cry {
-      margin: auto;
-      font-size: 1.8rem;
-      width: fit-content;
-    }
-
-    .pk-m-cry-container {
-      width: fit-content;
-      margin: auto;
-
-      .pk-m-cry-one {
-        margin-right: 1rem;
-        font-size: 1.8rem;
+      .pk-m-cry {
+        margin: auto;
+        font-size: 1.6rem;
         width: fit-content;
-        background-color: colors.$colors-num;
-        clip-path: rc.$rc;
-        padding: 0 0.5rem;
       }
 
-      .pk-m-cry-two {
-        font-size: 1.8rem;
+      .pk-m-cry-container {
         width: fit-content;
-        background-color: colors.$colors-num;
-        clip-path: rc.$rc;
-        padding: 0 0.5rem;
+        margin: auto;
+
+        .pk-m-cry-one {
+          margin-right: 1rem;
+          font-size: 1.6rem;
+          width: fit-content;
+          background-color: colors.$colors-num;
+          clip-path: rc.$rc;
+          padding: 0 0.5rem;
+        }
+
+        .pk-m-cry-two {
+          font-size: 1.6rem;
+          width: fit-content;
+          background-color: colors.$colors-num;
+          clip-path: rc.$rc;
+          padding: 0 0.5rem;
+        }
       }
     }
 
     .pk-m-section-two {
       width: 60%;
+      margin: auto;
+
+      .pk-m-type-container {
+        .pk-m-type-title {
+          margin: auto;
+          font-size: 1.6rem;
+          width: fit-content;
+        }
+
+        .pk-m-typies {
+          display: flex;
+          flex-direction: row;
+
+          p {
+            margin: auto;
+            font-size: 1.6rem;
+            width: fit-content;
+            clip-path: rc.$rc;
+            padding: 0 0.5rem;
+          }
+        }
+      }
+
+      .pk-m-ability-container {
+        .pk-m-ability-title {
+          margin: auto;
+          font-size: 1.6rem;
+          width: fit-content;
+        }
+
+        .pk-m-abilities {
+          display: flex;
+          flex-direction: row;
+
+          p {
+            margin: auto;
+            font-size: 1.6rem;
+            width: fit-content;
+            clip-path: rc.$rc;
+            padding: 0 0.5rem;
+            background-color: colors.$colors-modal-all;
+          }
+        }
+      }
+
+      .pk-m-body-m-title {
+        margin: auto;
+        font-size: 1.6rem;
+        width: fit-content;
+      }
+
+      .pk-m-body-m-container {
+        display: flex;
+        flex-direction: column;
+
+        .pk-m-body-m {
+          display: flex;
+          flex-direction: column;
+
+          p {
+            margin: auto;
+            font-size: 1.6rem;
+            width: fit-content;
+            clip-path: rc.$rc;
+            padding: 0 0.5rem;
+            background-color: colors.$colors-modal-all;
+          }
+
+          .pk-m-base-exp {
+            margin-bottom: 0.5rem;
+          }
+
+          .pk-m-body-base-m {
+            display: flex;
+            flex-direction: row;
+          }
+        }
+      }
+
+      .pk-m-stats-container {
+        .pk-m-stats-title {
+          margin: auto;
+          font-size: 1.6rem;
+          width: fit-content;
+        }
+
+        .pk-m-stats {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          p {
+            margin: auto;
+            font-size: 1.6rem;
+            width: fit-content;
+            clip-path: rc.$rc;
+            padding: 0 0.5rem;
+          }
+
+          .pk-m-stats-one {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-right: 0.5rem;
+
+            .pk-m-hp {
+              background-color: colors.$colors-modal-hp;
+            }
+
+            .pk-m-attack {
+              background-color: colors.$colors-modal-attack;
+            }
+
+            .pk-m-defence {
+              background-color: colors.$colors-modal-defence;
+            }
+          }
+
+          .pk-m-stats-two {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .pk-m-s-attack {
+              background-color: colors.$colors-modal-s-attack;
+            }
+
+            .pk-m-s-defence {
+              background-color: colors.$colors-modal-s-defence;
+            }
+
+            .pk-m-speed {
+              background-color: colors.$colors-modal-speed;
+            }
+          }
+        }
+      }
     }
   }
 }
 
-//
+@media (max-width: 960px) {
+  .modal-panel {
+    height: 55vh !important;
+
+    .pk-m-img {
+      height: 135px !important;
+    }
+
+    p {
+      font-size: 1.5rem !important;
+    }
+
+    .pk-m-cry-one {
+      font-size: 1.5rem !important;
+    }
+
+    .pk-m-cry-two {
+      font-size: 1.5rem !important;
+    }
+  }
+}
+
+@media (max-width: 915px) {
+  .modal-panel {
+    height: 51vh !important;
+
+    .pk-m-img {
+      height: 120px !important;
+    }
+
+    p {
+      font-size: 1.4rem !important;
+    }
+
+    .pk-m-cry-one {
+      font-size: 1.4rem !important;
+    }
+
+    .pk-m-cry-two {
+      font-size: 1.4rem !important;
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  .modal-panel {
+    height: 49vh !important;
+
+    .pk-m-img {
+      height: 105px;
+    }
+
+    p {
+      font-size: 1.3rem !important;
+    }
+
+    .pk-m-cry-one {
+      font-size: 1.3rem !important;
+    }
+
+    .pk-m-cry-two {
+      font-size: 1.3rem !important;
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .modal-panel {
+    flex-direction: column !important;
+    height: 64vh !important;
+    max-height: none !important;
+    width: 85vw !important;
+    max-width: none !important;
+    padding: 1rem !important;
+
+    .pk-m-section-one {
+      display: flex;
+      width: auto !important;
+      margin: 0 !important;
+
+      .pk-m-num-title {
+        text-align: center;
+      }
+
+      .pk-m-name-title {
+        text-align: center;
+      }
+
+      .pk-m-img {
+        height: 95px !important;
+      }
+
+      .pk-m-cries {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .pk-m-cry-one {
+          margin-right: 0px !important;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    .pk-m-section-two {
+      width: auto !important;
+      margin: none !important;
+
+      .pk-m-type-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pk-m-ability-container {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
 .type-normal {
   background-color: colors.$colors-normal;
   color: black;

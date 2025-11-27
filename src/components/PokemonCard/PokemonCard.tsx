@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import {
-  Description,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-} from '@headlessui/react';
+import { Dialog, DialogPanel } from '@headlessui/react';
 
 import type { PokemonInfo, PokemonInfoURL } from '../../types/PokemonInfo';
 
@@ -72,14 +67,10 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
         <div className='pokemon'>
           <h2 className='pk-num'>{'#' + pokemon?.id}</h2>
           {getTypeName(0) && (
-            <div className={`pk-type-one type-${typeOne}`}>
-              {getTypeName(0)}
-            </div>
+            <p className={`pk-type-one type-${typeOne}`}>{getTypeName(0)}</p>
           )}
           {getTypeName(1) && (
-            <div className={`pk-type-two type-${typeTwo}`}>
-              {getTypeName(1)}
-            </div>
+            <p className={`pk-type-two type-${typeTwo}`}>{getTypeName(1)}</p>
           )}
           <h2 ref={nameRef}>{pokemonName}</h2>
           <button className='pk-more' onClick={() => setIsOpen(true)}>
@@ -93,10 +84,16 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
             <div className='overlay' aria-hidden='true' />
             <DialogPanel className='modal-panel'>
               <div className='pk-m-section-one'>
-                <p className='pk-m-num-title'>Pokemon num:</p>
-                <p className='pk-m-num'>{'#' + pokemon?.id}</p>
-                <p className='pk-m-name-title'>Pokemon name:</p>
-                <p className='pk-m-name'>{pokemonName}</p>
+                <div className='pk-m-info'>
+                  <div className='pk-m-num-container'>
+                    <p className='pk-m-num-title'>Pokemon num:</p>
+                    <p className='pk-m-num'>{'#' + pokemon?.id}</p>
+                  </div>
+                  <div className='pk-m-name-container'>
+                    <p className='pk-m-name-title'>Pokemon name:</p>
+                    <p className='pk-m-name'>{pokemonName}</p>
+                  </div>
+                </div>
                 <div className='pk-m-img-container'>
                   <img
                     className='pk-m-img'
@@ -110,28 +107,109 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
                     onClick={() => setShowFront((prev) => !prev)}
                   />
                 </div>
-
-                <p className='pk-m-cry'>Cries:</p>
                 <div className='pk-m-cry-container'>
-                  {getCryName('latest') && (
-                    <button
-                      className='pk-m-cry-one'
-                      onClick={() => new Audio(urlOne).play()}
-                    >
-                      ♪
-                    </button>
-                  )}
-                  {getCryName('legacy') && (
-                    <button
-                      className='pk-m-cry-two'
-                      onClick={() => new Audio(urlTwo).play()}
-                    >
-                      ♫
-                    </button>
-                  )}
+                  <p className='pk-m-cry'>Cries:</p>
+                  <div className='pk-m-cries'>
+                    {getCryName('latest') && (
+                      <button
+                        className='pk-m-cry-one'
+                        onClick={() => new Audio(urlOne).play()}
+                      >
+                        ♪
+                      </button>
+                    )}
+                    {getCryName('legacy') && (
+                      <button
+                        className='pk-m-cry-two'
+                        onClick={() => new Audio(urlTwo).play()}
+                      >
+                        ♫
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
-              <div className='pk-m-section-two'></div>
+              <div className='pk-m-section-two'>
+                <div className='pk-m-type-container'>
+                  <p className='pk-m-type-title'>Type:</p>
+                  <div className='pk-m-typies'>
+                    {getTypeName(0) && (
+                      <p className={`pk-m-type-one type-${typeOne}`}>
+                        {getTypeName(0)}
+                      </p>
+                    )}
+                    {getTypeName(1) && (
+                      <p className={`pk-m-type-two type-${typeTwo}`}>
+                        {getTypeName(1)}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div className='pk-m-ability-container'>
+                  <p className='pk-m-ability-title'>Abilities:</p>
+                  <div className='pk-m-abilities'>
+                    {getAbilityName(0) && (
+                      <p className={`pk-m-ability-one`}>{getAbilityName(0)}</p>
+                    )}
+                    {getAbilityName(1) && (
+                      <p className={`pk-m-ability-two`}>{getAbilityName(1)}</p>
+                    )}
+                  </div>
+                </div>
+                <p className='pk-m-body-m-container'>
+                  <p className='pk-m-body-m-title'>Body-metrics:</p>
+                  <div className='pk-m-body-m'>
+                    <p className='pk-m-base-exp'>
+                      <span className='base-exp'>Base-exp: </span>
+                      {pokemon?.base_experience}
+                    </p>
+                    <div className='pk-m-body-base-m'>
+                      <p className={'pk-m-weight'}>
+                        <span className='Weight'>Weight: </span>
+                        {pokemon?.weight}
+                      </p>
+                      <p className={'pk-m-height'}>
+                        <span className='height'>Height: </span>
+                        {pokemon?.height}
+                      </p>
+                    </div>
+                  </div>
+                </p>
+
+                <div className='pk-m-stats-container'>
+                  <p className='pk-m-stats-title'>Stats:</p>
+                  <div className='pk-m-stats'>
+                    <div className='pk-m-stats-one'>
+                      <p className='pk-m-hp'>
+                        <span>HP: </span>
+                        {pokemon?.stats[0].base_stat}
+                      </p>
+                      <p className={'pk-m-attack'}>
+                        <span>ATK: </span>
+                        {pokemon?.stats[1].base_stat}
+                      </p>
+                      <p className={'pk-m-defence'}>
+                        <span>DEF: </span>
+                        {pokemon?.stats[2].base_stat}
+                      </p>
+                    </div>
+                    <div className='pk-m-stats-two'>
+                      <p className={'pk-m-s-attack'}>
+                        <span>S-ATK: </span>
+                        {pokemon?.stats[3].base_stat}
+                      </p>
+                      <p className={'pk-m-s-defence'}>
+                        <span>S-DEF: </span>
+                        {pokemon?.stats[4].base_stat}
+                      </p>
+                      <p className={'pk-m-speed'}>
+                        <span>Speed: </span>
+                        {pokemon?.stats[5].base_stat}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </DialogPanel>
           </Dialog>
           <img
