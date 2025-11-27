@@ -60,8 +60,8 @@
   position: fixed;
   padding: 0.1rem 0.1rem 0.1rem 0.1rem;
   background-color: rgba($color: #000000, $alpha: 0.5);
-  bottom: 6rem;
-  right: 1rem;
+  bottom: 96px;
+  right: 16px;
   clip-path: rc.$rc;
 
   &:hover {
@@ -69,7 +69,7 @@
   }
 
   .scrollTopImg {
-    width: 2.5rem;
+    width: 40px;
   }
 
   .scrollTopImg.show {
