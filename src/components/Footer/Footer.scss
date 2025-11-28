@@ -1,15 +1,22 @@
 @use '../../variables/rc';
 
 .footer {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  overflow-x: hidden;
+  // position: relative;
 
-  .groundImg {
-    width: 192px;
-    margin-top: 6rem;
-    display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  .footer-bg {
+    display: flex;
+    flex-direction: row;
+
+    .groundImg {
+      width: calc(192px + var(--calcLeftover));
+      height: 125px;
+      margin-top: 6rem;
+      display: block;
+    }
   }
 
   .more-btn {
@@ -72,7 +79,7 @@
   .footerText {
     position: absolute;
     top: 164px;
-    right: 32px;
+    right: 2rem;
     font-size: 1.5rem;
     background-color: rgba($color: #fff, $alpha: 0.4);
     padding: 0 0.5rem;

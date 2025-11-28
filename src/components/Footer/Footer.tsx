@@ -9,14 +9,23 @@ interface loadMoreProps {
 }
 
 export const Footer = ({ loadMore }: loadMoreProps) => {
-  const count = Math.ceil(window.innerWidth / 192);
+  const imageWidth = 192;
+  const containerWidth = window.innerWidth;
+  const fullImages = Math.floor(containerWidth / imageWidth);
+  const leftover = containerWidth - fullImages * imageWidth;
+  const calcLeftover = leftover / fullImages;
 
   return (
     <>
-      <div className='footer'>
-        {Array.from({ length: count }).map((_, i) => (
-          <img key={i} className='groundImg' src={groundImg} alt='Ground' />
-        ))}
+      <div
+        className='footer'
+        style={{ '--calcLeftover': calcLeftover + 'px' } as React.CSSProperties}
+      >
+        <div className='footer-bg'>
+          {Array.from({ length: fullImages }).map((_, i) => (
+            <img key={i} className='groundImg' src={groundImg} alt='Ground' />
+          ))}
+        </div>
         <div className='more-btn' onClick={loadMore}>
           <p>Dig down</p>
           <img src={rockBtn} alt='More pokemons' />
