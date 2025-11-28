@@ -4,6 +4,7 @@
   background-color: colors.$colors-bg;
   width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 
   .headerContainer {
     display: flex;
@@ -107,6 +108,7 @@
     width: max-content;
     margin: 0 auto;
     margin-top: 10rem;
+    margin-bottom: 12rem;
     min-height: 95px;
 
     .notFound {
@@ -119,7 +121,6 @@
       img {
         width: 96px;
         height: 96px;
-        margin-left: 22rem;
       }
     }
 
