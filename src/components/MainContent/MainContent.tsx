@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 
 import type {
   PokemonAPIResult,
@@ -17,42 +18,47 @@ import btnImg from '../../assets/btn-img.png';
 import './MainContent.scss';
 
 export const MainContent = () => {
-  const [pokemonsData, setPokemonsData] = useState<PokemonAPIResult | null>(
-    null
-  );
   const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState<string>('');
+
   const BATCH_SIZE = 18;
   const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
-
   useEffect(() => {
-    const fetch = async () => {
-      const result = await axios.get(
-        'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1000'
-      );
-      setPokemonsData(result.data);
-    };
-    fetch();
-  }, []);
+    setVisibleCount(BATCH_SIZE);
+  }, [search]);
+
+  const fetchData = async (): Promise<PokemonAPIResult> => {
+    const result = await axios.get(
+      'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1000',
+    );
+    return result.data;
+  };
+
+  const {
+    isLoading,
+    error,
+    data: pokemonsData,
+  } = useQuery({
+    queryKey: ['pokemons'],
+    queryFn: fetchData,
+  });
 
   const filteredPokemons = pokemonsData?.results.filter(
     (p: PokemonAPIResultURL) =>
-      p.name.toLowerCase().startsWith(search.toLowerCase())
+      p.name.toLowerCase().startsWith(search.toLowerCase()),
   );
   const allPokemons = search ? filteredPokemons : pokemonsData?.results;
   const displayPokemons = allPokemons?.slice(0, visibleCount);
-
   const handleLoadMore = () => {
     if (allPokemons && visibleCount < allPokemons.length) {
       setVisibleCount((prev) =>
-        Math.min(prev + BATCH_SIZE, allPokemons.length)
+        Math.min(prev + BATCH_SIZE, allPokemons.length),
       );
     }
   };
 
-  useEffect(() => {
-    setVisibleCount(BATCH_SIZE);
-  }, [search]);
+  if (isLoading) return <div className='loading'>Loading...</div>;
+  if (error) return <div className='error'>Error fetching data</div>;
 
   return (
     <div className='container' id='container'>
@@ -61,8 +67,9 @@ export const MainContent = () => {
         <header>
           <img
             src={headerCloud}
-            alt='Header background cloud'
             className='headerCloud'
+            alt=''
+            aria-hidden='true'
           />
           <img
             src={logoImg}
@@ -76,11 +83,7 @@ export const MainContent = () => {
           />
         </header>
         <nav>
-          <img
-            src={searchBg}
-            alt='Search background cloud'
-            className='searchBg'
-          />
+          <img src={searchBg} className='searchBg' alt='' aria-hidden='true' />
           <input
             type='text'
             placeholder='Search...'
@@ -94,9 +97,10 @@ export const MainContent = () => {
             onClick={() => {
               setSearch(inputValue);
             }}
+            aria-label='Search button'
           >
-            <img src={btnBg} alt='Search button' className='btnBg' />
-            <img src={btnImg} alt='Search icon' className='btnImg' />
+            <img src={btnBg} className='btnBg' alt='' aria-hidden='true' />
+            <img src={btnImg} className='btnImg' alt='' aria-hidden='true' />
           </div>
         </nav>
       </div>
@@ -109,7 +113,8 @@ export const MainContent = () => {
             <p>No Pokémon found</p>
             <img
               src='https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExczd4b3U1NWU1dDE2cmwzcGNucXc0c21oaGltems3dnl0dTFsZW8xOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6nWhy3ulBL7GSCvKw6/giphy.gif'
-              alt='No Pokémon found GIF'
+              alt=''
+              aria-hidden='true'
             />
           </div>
         )}
