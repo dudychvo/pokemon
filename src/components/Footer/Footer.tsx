@@ -23,16 +23,23 @@ export const Footer = ({ loadMore }: loadMoreProps) => {
       >
         <div className='footer-bg'>
           {Array.from({ length: fullImages }).map((_, i) => (
-            <img key={i} className='groundImg' src={groundImg} alt='Ground' />
+            <img
+              key={i}
+              className='groundImg'
+              src={groundImg}
+              alt=''
+              aria-hidden='true'
+              loading='lazy'
+            />
           ))}
         </div>
         <div className='more-btn' onClick={loadMore}>
           <p>Dig down</p>
-          <img src={rockBtn} alt='More pokemons' />
+          <img src={rockBtn} alt='' aria-hidden='true' loading='lazy' />
         </div>
         <div className='github'>
           <a href='https://github.com/dudychvo/'>
-            <img src={github} alt='Github' />
+            <img src={github} alt='Github' loading='lazy' />
           </a>
         </div>
         <p className='footerText'>Created with ❤️ by Volodymyr Dudych</p>
