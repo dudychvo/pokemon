@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { useQuery } from '@tanstack/react-query';
 import { Dialog, DialogPanel } from '@headlessui/react';
 
 import type { PokemonInfo, PokemonInfoURL } from '../../types/PokemonInfo';
@@ -11,25 +12,30 @@ import './PokemonCard.scss';
 type CryType = 'latest' | 'legacy';
 
 export const PokemonCard = ({ url }: PokemonInfoURL) => {
-  const [pokemon, setPokemon] = useState<PokemonInfo | null>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const [showFront, setShowFront] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const fetch = async () => {
-      const result = await axios.get(url);
-      setPokemon(result.data);
-    };
-    fetch();
-  }, [url]);
+  const fetchPokemon = async (): Promise<PokemonInfo> => {
+    const result = await axios.get(url);
+    return result.data;
+  };
+
+  const {
+    isLoading,
+    error,
+    data: pokemon,
+  } = useQuery({
+    queryKey: ['pokemon', url],
+    queryFn: fetchPokemon,
+  });
 
   useEffect(() => {
     if (!pokemon || !nameRef.current) return;
 
     const textLength = pokemon.name.length;
     nameRef.current.classList.add(
-      textLength >= 10 ? 'pk-name-wide' : 'pk-name-narrow'
+      textLength >= 10 ? 'pk-name-wide' : 'pk-name-narrow',
     );
   }, [pokemon]);
 
@@ -37,7 +43,7 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
 
   const getTypeName = (typeIndex: number) => {
     return pokemon?.types?.[typeIndex]?.type.name.replace(/^./, (c) =>
-      c.toUpperCase()
+      c.toUpperCase(),
     );
   };
   const typeOne = getTypeName(0)?.toLowerCase();
@@ -45,7 +51,7 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
 
   const getAbilityName = (abilityIndex: number) => {
     return pokemon?.abilities?.[abilityIndex]?.ability.name.replace(/^./, (c) =>
-      c.toUpperCase()
+      c.toUpperCase(),
     );
   };
 
@@ -60,10 +66,13 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
     e.currentTarget.classList.add(w > 87 ? 'pk-img-wide' : 'pk-img-narrow');
   };
 
+  if (isLoading) return <div className='loading'>Loading...</div>;
+  if (error) return <div className='error'>Error fetching data</div>;
+
   return (
     <>
       <div className='pk-container'>
-        <img src={cardBg} alt='Pokemon card' className='pk-bg' />
+        <img src={cardBg} className='pk-bg' alt='' aria-hidden='true' />
         <div className='pokemon'>
           <h2 className='pk-num'>{'#' + pokemon?.id}</h2>
           {getTypeName(0) && (
@@ -102,7 +111,7 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
                         ? pokemon?.sprites.other?.showdown?.front_default
                         : pokemon?.sprites.other?.showdown?.back_default
                     }
-                    alt=''
+                    alt='Pokemon image'
                     onLoad={handleImageLoad}
                     onClick={() => setShowFront((prev) => !prev)}
                   />
@@ -132,7 +141,7 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
               <div className='pk-m-section-two'>
                 <div className='pk-m-type-container'>
                   <p className='pk-m-type-title'>Type:</p>
-                  <div className='pk-m-typies'>
+                  <div className='pk-m-types'>
                     {getTypeName(0) && (
                       <p className={`pk-m-type-one type-${typeOne}`}>
                         {getTypeName(0)}
@@ -218,7 +227,7 @@ export const PokemonCard = ({ url }: PokemonInfoURL) => {
                 ? pokemon?.sprites.other?.showdown?.front_default
                 : pokemon?.sprites.other?.showdown?.back_default
             }
-            alt=''
+            alt='Pokemon image'
             onLoad={handleImageLoad}
             onClick={() => setShowFront((prev) => !prev)}
           />
