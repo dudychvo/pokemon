@@ -10,6 +10,7 @@ import './App.scss';
 function App() {
   const [loading, setLoading] = useState(true);
   const [showPreloader, setShowPreloader] = useState(true);
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,8 +19,6 @@ function App() {
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
-
-  const [showScrollBtn, setShowScrollBtn] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -64,7 +63,7 @@ function App() {
       >
         <img
           src={scrollUp}
-          alt='#'
+          alt='Scroll to top'
           className={`scrollTopImg ${showScrollBtn ? 'show' : 'hide'}`}
         />
       </div>
