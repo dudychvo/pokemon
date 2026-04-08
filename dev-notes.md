@@ -10,6 +10,7 @@ Users can browse Pokémon, view some stats, and open a modal for additional info
 **Libraries / Tools Used:**
 
 - _Axios_ – for fetching data from the Pokémon API
+- _TanstackQuery_ – for efficient data fetching and caching
 - _PokéAPI_ – official Pokémon data source
 - _HeadlessUI_ – accessible modal component
 - _Pixelated rounded corners_ – [https://pixelcorners.lukeb.co.uk/?radius=8&multiplier=4]
